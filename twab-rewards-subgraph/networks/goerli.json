@@ -1,0 +1,7 @@
+{
+  "network": "goerli",
+  "TWABRewards": {
+    "address": "0x6E94478B2994107Ee572D4fF1c21652877d96f27",
+    "startBlock": "8855160"
+  }
+}

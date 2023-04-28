@@ -1,0 +1,7 @@
+{
+  "network": "goerli",
+  "PrizeDistributor": {
+    "address": "0xe4b49161787aA10A71C3D17bB19406a2AeFDb35b",
+    "startBlock": "8828172"
+  }
+}

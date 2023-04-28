@@ -1,0 +1,7 @@
+{
+  "network": "mainnet",
+  "TWABRewards": {
+    "address": "0x1c7614E22566A3C41925C629AC15655aB8c54E09",
+    "startBlock": "17093032"
+  }
+}

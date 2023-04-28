@@ -1,0 +1,22 @@
+type Ticket @entity {
+  id: ID! # ticket address
+  accounts: [Account!]! @derivedFrom(field: "ticket")
+}
+
+type Account @entity {
+  id: ID! # account address
+  balance: BigInt # ticket balance in user wallet
+  delegateBalance: BigInt # amount of tickets delegated to this account
+  ticket: Ticket
+  twabs: [Twab!]! @derivedFrom(field: "account")
+  delegates: [Account!]! @derivedFrom(field: "delegatee") # accounts who delegated to this account
+  delegatee: Account # account to whom this account delegates his tickets
+}
+
+type Twab @entity {
+  id: ID! # delegate address + timestamp
+  amount: BigInt!
+  delegateBalance: BigInt!
+  timestamp: BigInt!
+  account: Account!
+}

@@ -1,0 +1,7 @@
+{
+  "network": "goerli",
+  "ticket": {
+    "address": "0x9B28e76bb2e48d6c51eB9091304Adf7D71a744AA",
+    "startBlock": "8855116"
+  }
+}

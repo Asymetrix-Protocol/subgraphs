@@ -1,0 +1,21 @@
+node_modules
+build
+
+subgraph.mainnet.yaml
+subgraph.goerli.yaml
+subgraph.sepolia.yaml
+subgraph.yaml
+
+networks/local.json
+generated/schema.ts
+generated
+build
+
+# Matchstick binaries
+tests/.bin/
+
+yarn.lock
+
+.DS_Store
+.history
+

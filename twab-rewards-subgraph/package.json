@@ -1,0 +1,37 @@
+{
+  "name": "twab-subgraph",
+  "license": "GPL-3.0",
+  "version": "1.0.0",
+  "scripts": {
+    "reinstall": "rm -rf node_modules/ yarn.lock && yarn",
+    "clean": "rm -rf build/ generated/",
+    "format": "prettier --config .prettierrc --write \"**/*.{ts,js}\"",
+    "format:file": "prettier --config .prettierrc --write",
+    "prepare:mainnet": "mustache networks/mainnet.json subgraph.template.yaml subgraph.mainnet.yaml",
+    "prepare:sepolia": "mustache networks/sepolia.json subgraph.template.yaml subgraph.sepolia.yaml",
+    "prepare:goerli": "mustache networks/goerli.json subgraph.template.yaml subgraph.goerli.yaml",
+    "gen:mainnet": "graph codegen subgraph.mainnet.yaml",
+    "gen:sepolia": "graph codegen subgraph.sepolia.yaml",
+    "gen:goerli": "graph codegen subgraph.goerli.yaml",
+    "deploy:mainnet": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ asymetrix-protocol/twab-rewards-subgraph-prod subgraph.mainnet.yaml",
+    "deploy:sepolia": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ asymetrix-protocol/twab-rewards-subgraph-prod subgraph.sepolia.yaml",
+    "deploy:goerli": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ asymetrix-protocol/twab-rewards-subgraph-prod subgraph.goerli.yaml",
+    "all-mainnet": "yarn clean && yarn prepare:mainnet && yarn gen:mainnet && yarn deploy:mainnet",
+    "all-sepolia": "yarn clean && yarn prepare:sepolia && yarn gen:sepolia && yarn deploy:sepolia",
+    "all-goerli": "yarn clean && yarn prepare:goerli && yarn gen:goerli && yarn deploy:goerli",
+    "build:mainnet": "graph build subgraph.mainnet.yaml",
+    "build:sepolia": "graph build subgraph.sepolia.yaml",
+    "build:goerli": "graph build subgraph.goerli.yaml",
+    "auth": "graph auth https://api.thegraph.com/deploy/",
+    "test": "yarn clean && yarn prepare:sepolia && yarn gen:sepolia && cp subgraph.sepolia.yaml subgraph.yaml && graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.29.0",
+    "@graphprotocol/graph-ts": "0.26.0",
+    "matchstick-as": "0.4.2",
+    "mustache": "4.2.0"
+  },
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
+}

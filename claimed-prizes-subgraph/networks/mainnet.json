@@ -1,0 +1,7 @@
+{
+  "network": "mainnet",
+  "PrizeDistributor": {
+    "address": "",
+    "startBlock": "13419000"
+  }
+}
